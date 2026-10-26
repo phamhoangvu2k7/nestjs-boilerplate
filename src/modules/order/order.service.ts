@@ -34,8 +34,6 @@ export class OrderService {
       createOrderDto.payment_method_id,
     );
 
-    let order: Order;
-
     const queryRunner = this.datasource.createQueryRunner();
     await queryRunner.connect();
 
@@ -50,7 +48,7 @@ export class OrderService {
       paymentMethod: { id: createOrderDto.payment_method_id },
     });
 
-    order = await queryRunner.manager.save(Order, createdOrder);
+    const order = await queryRunner.manager.save(Order, createdOrder);
 
     return this.paymentFactory.createPaymentMethod(
       paymentMethodName,

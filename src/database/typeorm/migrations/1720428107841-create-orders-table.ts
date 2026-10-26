@@ -1,10 +1,10 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class CreateOrdersTable1720428107841 implements MigrationInterface {
-    name = 'CreateOrdersTable1720428107841'
+  name = 'CreateOrdersTable1720428107841';
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
             CREATE TABLE "orders" (
                 "id" SERIAL PRIMARY KEY,
                 "user_id" integer,
@@ -21,12 +21,11 @@ export class CreateOrdersTable1720428107841 implements MigrationInterface {
                 FOREIGN KEY ("payment_method_id") REFERENCES "payment_methods" ("id")
             );
         `);
-    }
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
             DROP TABLE IF EXISTS orders;
         `);
-    }
-
+  }
 }

@@ -1,10 +1,10 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class CreateProductsTable1720427966818 implements MigrationInterface {
-    name = 'CreateProductsTable1720427966818'
+  name = 'CreateProductsTable1720427966818';
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
             CREATE TABLE "products" (
                 "id" SERIAL PRIMARY KEY,
                 "name" varchar,
@@ -13,10 +13,9 @@ export class CreateProductsTable1720427966818 implements MigrationInterface {
                 "updated_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
             );
         `);
-    }
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE IF EXISTS products;`);
-    }
-
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`DROP TABLE IF EXISTS products;`);
+  }
 }
