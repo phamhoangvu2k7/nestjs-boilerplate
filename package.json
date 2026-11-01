@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "test -d node_modules/husky && husky install || echo \"husky is not installed\"",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist tsconfig.build.tsbuildinfo tsconfig.tsbuildinfo",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "nest start",

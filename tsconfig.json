@@ -11,6 +11,7 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "baseUrl": "./",
+    "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo",
     "ignoreDeprecations": "6.0",
     "incremental": true,
     "skipLibCheck": true,
